@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Action Steps</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+    <link href="style.css" rel="stylesheet">
+    
+</head>
+<body>
+
+<div class="modal" id="registerModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <img class="img img-responsive"  src="imgs/logo.png">
+                <h2 class="modal-title text-center yellow"><i class="fas fa-sign-in-alt"></i> Регистрирајте се</h2>
+            </div>
+            <div class="modal-body">
+                <form method="GET">
+                    <div class="form-group">
+                        <input type="text" placeholder="Име" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Презиме" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Компанија" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input list="vraboteni" placeholder="Број на вработени" class="form-control">
+                        <datalist id="vraboteni">
+                            <option value="1">
+                            <option value="2-10">
+                            <option value="11-50">
+                            <option value="51-200">
+                            <option value="200+">
+                        </datalist>
+                    </div>
+                    <div class="form-group">
+                        <input list="department" placeholder="Сектор" class="form-control">
+                        <datalist id="department">
+                            <option value="Продажба">
+                            <option value="Маркетинг">
+                            <option value="Продукт менаџмент">
+                            <option value="Човечки ресурси">
+                            <option value="Финансии">
+                            <option value="ЦЕО">
+                            <option value="Друго">
+                        </datalist>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Контакт телефон (опционално)" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Лозинка" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Потврдете лозинка" class="form-control" required>
+                    </div>
+                    <textarea maxlength="300" id="text" class="form-control" rows="5" placeholder="Коментар"></textarea>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="" required>Се согласувам со правилата и условите на користење</label>
+                    </div>
+                    <button class="btn btn-block btn1" data-dismiss="modal">Регистрирајте се</button>
+                </form>
+            </div>
+            <div class="modal-footer foot2">
+                <p>Веќе сте член? <a href="#" data-toggle="modal" data-target="#loginModal" data-dismiss="modal">Најавете се</a></p>
+                <button class="btn btn-secondary pull-left btn4" data-dismiss="modal">Откажете се</button>
+            </div>
+        </div>
+    </div>
+</div>
+            
+<div class="modal" id="loginModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <img class="img img-responsive"  src="imgs/logo.png">
+                <h2 class="modal-title text-center yellow"><i class="fas fa-sign-in-alt"></i> Најавете се</h2>
+            </div>
+            <div class="modal-body">
+                <form method="GET">
+                <div class="form-group">
+                    <input type="text" placeholder="Корисничко име" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Лозинка" class="form-control">
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">Запомни ме</label>
+                </div>
+                <button class="btn btn-block btn1" data-dismiss="modal">Најавете се</button>
+                </form>
+            </div>
+            <div class="modal-footer foot2">
+                <div>
+                    <p>Не сте член? <a href="#" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Регистрирајте се</a></p>
+                    <p>Ја заборавивте вашата <a href="#">лозинка?</a></p>
+                </div>
+                <button class="btn btn-secondary pull-left btn4" data-dismiss="modal">Откажете се</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-fixed-top nav2">
+    <div class="container-fluid">
+        <div id="mySidenav" class="sidenav">
+            <a href="index.html"><img src="imgs/logo.png"></a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times fa-lg"></i> Затвори</a>
+            <a href="#" class="yellow" data-toggle="modal" data-target="#registerModal">Регистрирајте се</a>
+            <hr>
+            <a href="#" class="yellow" data-toggle="modal" data-target="#loginModal">Најавете се</a>
+            <hr>
+            <a href="https://brainster.co/about" target="_blank">За нас</a>
+            <hr>
+            <a href="https://www.facebook.com/pg/brainster.co/photos/" target="_blank">Галерија</a>
+            <hr>
+            <a href="https://brainster.co/contact" target="_blank">Контакт</a>
+            <hr>
+        </div>
+        <div class="row">
+            <div onclick="openNav()" class="col-md-4 col-sm-4 col-xs-4 menu">
+                <a class="menu1"> 
+                    <div class="div1"></div>
+                    <div class="div1"></div>
+                    <div class="div1"></div>
+                </a>
+                <a><h6>Мени</h6></a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6 text-center logo">
+                <a href="index.html"><img src="imgs/logo.png"></a>
+            </div>
+            <div class="col-md-4 col-sm-4 right showIt">
+                <a href="https://www.brainster.io/business" target="_blank"><button class="btn navbar-btn btn1">Обуки за компании</button></a>
+                <a href="https://www.brainster.io/business" target="_blank"><button class="btn navbar-btn btn2">Вработи наши студенти</button></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="blue7">
+    <div class="col-md-4 col-sm-4 text-center right hideIt hideIt2">
+        <a href="https://www.brainster.io/business" target="_blank"><button class="btn navbar-btn btn1">Обуки за компании</button></a>
+        <a href="https://www.brainster.io/business" target="_blank"><button class="btn navbar-btn btn2">Вработи наши студенти</button></a>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 game">
+            <h1>Action Steps</h1>
+            <p>(категорија акција)</p>
+            <div class="props">
+                <div class="col-md-3 props1">
+                    <div class="cardF cardF1">
+                        <i class="far fa-clock fa-2x "></i>
+                        <h5>Временска рамка</h5>
+                    </div>
+                    <h6 class="text-muted time">120-240 минути</h6>
+                </div>
+                <div class="col-md-3 props1">
+                    <div class="cardF cardF1">
+                        <i class="fas fa-users fa-2x"></i>
+                        <h5>Големина на група</h5>
+                    </div>
+                    <h6 class="text-muted time time1">2-10</h6>
+                </div>
+                <div class="col-md-3 props1">
+                    <div class="cardF cardF1">
+                            <i class="fas fa-university fa-2x"></i>
+                        <h5>Ниво за фасилитирање</h5>
+                    </div>
+                    <h6 class="text-muted time">Средно</h6>
+                </div>
+                <div class="col-md-3 props1">
+                    <div class="cardF cardF1">
+                            <i class="fas fa-tools fa-2x"></i>
+                        <h5>Материјали</h5>
+                    </div> 
+                    <h6 class="text-muted time">Пенкала / маркери во боја, А3 формат на хартија</h6>   
+                </div>   
+            </div>
+            <div class="opis">
+                <p>
+                    Ова е мала стратешка сесија за планирање која им помага
+                    на групи и поединци да преземат акција кон посакуваните
+                    промени. Често се користи на крајот од работилницата или
+                    програмата. Групата дискутира и се согласува со визија,
+                    а потоа создава некои чекори за дејствување кои ќе ги
+                    водат кон таа визија. Обемот на предизвикот исто така е
+                    дефиниран, преку дискусија за корисни и штетни фактори
+                    кои влијаат врз групата.
+                </p>
+            </div>
+            <div class="step">
+                <p>
+                    <p class="step1">Чекор 1:</p>
+                    Започнете: <span class="italic"> Затворете ги очите и замислете дека сте 6 месеци
+                    од сега. Замислете дека сте постигнале се што сте поставиле
+                    како цел. Размислете за она што сте го направиле во текот на
+                    шесте месеци. Вашата работа. Вашите односи со останатите.
+                    Што ве прави среќни.</span><br><br>
+                    Дајте им на учесниците пенкала и хартија. Тие сега ќе ја
+                    креираат својата визија за иднината на десната страна на
+                    хартијата. Ограничете ги на 4 или 5 различни теми кои ја
+                    сочинуваат оваа визија, користејќи неколку зборови, но колку
+                    што сакаат визуелни елементи.<br><br>
+                    Ако тие се во групи, тие треба да разговараат за нивните
+                    визии и да дефинираат заедничка групна визија.
+                </p>
+            </div>
+            <div class="step">
+                <p>
+                    <p class="step1">Чекор 2:</p>
+                    Побарајте од нив да напишат најмалку 5 корисни фактори на
+                    врвот на страната, кои ќе ги поддржат за да ја реализираат
+                    својата визија. Тоа може да бидат луѓе, можности,
+                    технологии, ситуации, итн.
+                </p>
+            </div>
+            <div class="step">
+                <p>
+                    <p class="step1">Чекор 3:</p>
+                    Во дното на страницата побарајте од нив да напишат најмалку
+                    5 придружни фактори кои ќе ги поддржат за да ја реализираат
+                    својата визија. Повторно, ова може да бидат луѓе, можности,
+                    технологии, ситуации, итн.
+                </p>
+            </div>
+            <div class="step">
+                <p>
+                    <p class="step1">Чекор 4:</p>
+                    Сега групата или поединците ќе дискутираат и ќе ги
+                    дефинираат чекорите за акција. Побарајте од нив да нацртаат
+                    три кутии од левата страна на хартијата до визијата на
+                    десната страна. Ова ќе бидат трите големи чекори што треба
+                    да ги преземат за да се постигне нивната визија.<br><br>
+                    Ако работат како поединци, тогаш ги ставате во парови за да
+                    разговараат за нивните чекори. Ако веќе се во групи, тогаш
+                    може да разговараат за чекорите што ги прават.<br><br>
+                    Тие пишуваат чекор во секоја кутија, концизно, но со толку
+                    многу детали што им се потребни за да им биде јасно на
+                    самите себе и на другите.
+                </p>
+            </div>
+            <div class="step step2">
+                <p>
+                    <p class="step1">Чекор 5:</p>
+                    За да ја затворите сесијата, отидете околу групата, барајќи
+                    од сите да ја искажат својата визија и еден (или сите три)
+                    чекори за акција. Прашајте го секое лице: Која е првото
+                    нешто што ќе го направите кога ќе се вратите во канцеларија.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer2">
+    <div class="future text-center future2">
+        <h1>FUTURE-PROOF YOUR ORGANIZATION</h1>
+        <p>Find out how to unlock progress in your business. Understand your
+        current state, indentify opportunity areas and prepare to take charge of
+        your organization's future.</p>
+        <a href="https://brainsterquiz.typeform.com/to/kC2I9E" target="_blank"><button class="btn btn3 btn5">Take the assessment</button></a>
+    </div>
+    <div class="foot1">
+        <div class="col-md-4 col-sm-4 col-xs-10">
+            <ul class="nav navbar-nav list">
+                <li><a href="https://brainster.co/about" target="_blank">About us</a></li>
+                <li><a href="https://brainster.co/contact" target="_blank">Contact</a></li>
+                <li><a href="https://www.facebook.com/pg/brainster.co/photos/" target="_blank">Gallery</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4 col-sm-4 text-center">
+            <a href="#"><img src="imgs/logo.png"></a>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <ul class="nav navbar-nav foot">
+                <li><a href="https://www.linkedin.com/school/brainster-co/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://twitter.com/BrainsterCo" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.facebook.com/brainster.co/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            </ul>
+        </div>
+    </div>  
+</footer>
+      
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"></script>
+
+<!-- JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+crossorigin="anonymous"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
